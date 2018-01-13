@@ -1,3 +1,11 @@
+$copy-fontface: 'Open Sans';
+$copy-size: '16px';
+
+body {
+	font-family: $copy-fontface;
+	font-size: $copy-size;
+}
+
 p {
 	margin-bottom: 1.5em;
 }

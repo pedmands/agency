@@ -1,3 +1,9 @@
+
+$headings-fontface: 'Roboto Slab';
+$headings-weight: 'bold';
+
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	font-family: $headings-fontface;
+	font-weight: $headings-weight;
 }
