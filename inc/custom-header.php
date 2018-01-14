@@ -22,11 +22,19 @@ function agency_underscores_custom_header_setup() {
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
-		'flex-height'            => true,
+		'flex-height'            => false,
 		'wp-head-callback'       => 'agency_underscores_header_style',
+		'video'									 => true,
 	) ) );
 }
 add_action( 'after_setup_theme', 'agency_underscores_custom_header_setup' );
+
+add_filter( 'header_video_settings', 'agency_underscores_header_video_settings');
+function agency_underscores_header_video_settings( $settings ) {
+  $settings['minWidth'] = 680;
+  $settings['minHeight'] = 400;
+  return $settings;
+}
 
 if ( ! function_exists( 'agency_underscores_header_style' ) ) :
 	/**
