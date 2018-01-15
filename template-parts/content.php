@@ -29,19 +29,16 @@
 	<?php agency_underscores_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'agency_underscores' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
+
+			<?php
+			$content = get_the_content();
+			$dropCap = substr($content, 0, 1);
+			$theContent = get_the_content();
+			$trimmed = substr($theContent, 1, strlen($theContent));
+
+			echo '<p class="rest-of-the-content">';
+			echo '<span class="drop-cap">'. $dropCap . '</span> ' . $trimmed;
+			echo '</p>';
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'agency_underscores' ),

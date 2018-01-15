@@ -281,7 +281,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   font-family: "Open Sans";
-  font-size: "16px";
+  font-size: "18px";
 }
 
 p {
@@ -690,43 +690,40 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-.content-area {
-  float: left;
-  margin: 0 -25% 0 0;
-  width: 100%;
+.site {
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: auto;
+  grid-template-areas: "h h h h h h h h h h" ". c c c c c c c c ." "f f f f f f f f f f";
 }
 
-.site-main {
-  margin: 0 25% 0 0;
+.site-header {
+  grid-area: h;
 }
 
-.site-content .widget-area {
-  float: right;
-  overflow: hidden;
-  width: 25%;
+.site-content {
+  grid-area: c;
+  display: grid;
+  grid-template-columns: auto 250px;
+  grid-template-areas: "c s";
+}
+.site-content #primary {
+  grid-area: c;
+}
+.site-content #secondary {
+  grid-area: s;
 }
 
 .site-footer {
-  clear: both;
-  width: 100%;
+  grid-area: f;
 }
 
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
-.site-main {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
-.site-branding {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -735,7 +732,7 @@ a:hover, a:active {
 }
 
 .hentry {
-  margin: 0 0 1.5em;
+  margin: 0 0 1.5rem;
 }
 
 .updated:not(.published) {
@@ -745,12 +742,26 @@ a:hover, a:active {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 1.5rem 0 0;
 }
 
 .page-links {
   clear: both;
-  margin: 0 0 1.5em;
+  margin: 0 0 1.5rem;
+}
+
+.entry-title {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.entry-content .drop-cap {
+  float: left;
+  font-size: 6rem;
+  font-weight: bold;
+  color: #F5E323;
+  line-height: .8;
+  padding: .25rem 1rem 0 .2rem;
 }
 
 /*--------------------------------------------------------------
